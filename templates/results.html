@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/style.css">
+    <title>Resultados</title>
+</head>
+<body>
+    <h1>Resultados das Imagens</h1>
+    {% for result in results %}
+        <h2>Classe Predita: {{ result.predicted_class }}</h2>
+        <h3>Receitas Sugeridas:</h3>
+        <ul>
+            {% if result.recipes %}
+                {% for recipe in result.recipes %}
+                    <li>
+                        <a href="{{ recipe.url }}" target="_blank">{{ recipe.name }}</a>
+                    </li>
+                {% endfor %}
+            {% else %}
+                <li>Nenhuma receita encontrada para esta classe.</li>
+            {% endif %}
+        </ul>
+        <img src="{{ url_for('static', filename=result.image) }}" alt="Imagem Classificada">
+    {% endfor %}
+    <a href="/">Voltar</a>
+</body>
+</html>
