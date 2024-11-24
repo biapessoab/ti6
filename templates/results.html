@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -26,4 +26,46 @@
     {% endfor %}
     <a href="/">Voltar</a>
 </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/style.css" />
+    <title>Resultados da Classificação</title>
+  </head>
+  <body>
+    <div class="header">
+      <h1>🍽️ Resultados da Classificação</h1>
+      <p>
+        Veja os alimentos identificados e explore receitas deliciosas com eles.
+      </p>
+    </div>
+    <div class="container">
+      {% for result in results %}
+      <div class="result-card">
+        <h2>🥗 Alimento: {{ result.predicted_class }}</h2>
+        <h3>Receitas Sugeridas:</h3>
+        <div class="recipes">
+          {% if result.recipes %} {% for recipe in result.recipes %}
+          <div class="recipe-card">
+            <img
+              src="{{ recipe.image }}"
+              alt="{{ recipe.name }}"
+              class="recipe-image"
+            />
+            <h4>{{ recipe.name }}</h4>
+            <a href="{{ recipe.url }}" target="_blank">Ver Receita</a>
+          </div>
+          {% endfor %} {% else %}
+          <p>Nenhuma receita encontrada para este alimento.</p>
+          {% endif %}
+        </div>
+      </div>
+      {% endfor %}
+      <a href="/" class="back-link">Voltar</a>
+    </div>
+  </body>
 </html>

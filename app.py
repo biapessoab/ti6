@@ -118,7 +118,8 @@ def index():
                         recipe = item['recipe']
                         recipes.append({
                             'name': recipe['label'],
-                            'url': recipe['url']
+                            'url': recipe['url'],
+                            'image': recipe['image']
                         })
 
                 results.append({

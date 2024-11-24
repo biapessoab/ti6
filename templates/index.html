@@ -1,17 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/style.css">
-    <title>Food Classification</title>
-</head>
-<body>
-    <h1>Classificação de Alimentos</h1>
-    <form method="POST" enctype="multipart/form-data">
-        <label>Envie as imagens:</label>
-        <input type="file" name="file" multiple required>
-        <button type="submit">Classificar</button>
-    </form>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/style.css" />
+    <title>Classificação de Alimentos</title>
+  </head>
+  <body>
+    <div class="header">
+      <h1>🍎 Classificação de Alimentos</h1>
+      <p>
+        Envie suas imagens e descubra receitas incríveis com os ingredientes
+        identificados!
+      </p>
+    </div>
+    <div class="container">
+      <form method="POST" enctype="multipart/form-data">
+        <label for="file-upload">Envie suas imagens de alimentos:</label>
+        <input id="file-upload" type="file" name="file" multiple required />
+        <button type="submit">Classificar Alimentos</button>
+      </form>
+    </div>
+  </body>
 </html>
